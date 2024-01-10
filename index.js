@@ -3,6 +3,7 @@ import path from "path"
 import { Product } from "./db.js";
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -84,6 +85,6 @@ app.delete("/delete/:id", async (req, res) => {
     }
 });
 
-app.listen(process.env.PORT, () => {
+app.listen(PORT, () => {
     console.log("Server is runing")
 })
