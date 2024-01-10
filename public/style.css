@@ -93,6 +93,7 @@ body{
 
 @media (max-width: 510px) {
     .registration {
+        max-width: 380px;
         padding: 25px 20px;
     }
 }

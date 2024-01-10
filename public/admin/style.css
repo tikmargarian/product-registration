@@ -185,7 +185,7 @@ a {
 
 @media (max-width: 510px) {
     .content {
-        max-width: 420px;
+        max-width: 380px;
         padding: 15px 0;
     }
     .content h2{
