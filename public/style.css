@@ -90,3 +90,9 @@ body{
     font-weight: 500;
     margin-top: 20px;
 }
+
+@media (max-width: 510px) {
+    .registration {
+        padding: 25px 20px;
+    }
+}

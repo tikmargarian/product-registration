@@ -185,6 +185,10 @@ a {
 
 @media (max-width: 510px) {
     .content {
-        max-width: 450px;
+        max-width: 420px;
+        padding: 15px 0;
+    }
+    .content h2{
+        font-size: 22px;
     }
 }
