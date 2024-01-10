@@ -86,5 +86,5 @@ app.delete("/delete/:id", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log("Server is runing")
-})
+    console.log(`Server is running on port ${PORT}`);
+});
