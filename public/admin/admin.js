@@ -1,6 +1,17 @@
 const searchBtn = document.getElementById("search-button");
+const inputEvent = document.getElementById("search-input");
 
 searchBtn.addEventListener("click", function () {
+    handleSearch()
+})
+
+inputEvent.addEventListener("keydown", function (evt) {
+    if(evt.key === "Enter") {
+        handleSearch()
+    }
+})
+
+function handleSearch () {
     let inputValue = document.getElementById("search-input").value;
     let result = document.querySelector(".search-result");
 
@@ -31,9 +42,9 @@ searchBtn.addEventListener("click", function () {
         }
     })
     .catch(error => {
-        console.log("Error", error)
+        console.log("Error on fetching data", error)
     })
-})
+}
 
 function createElelemtWithText (tag, text) {
     const element = document.createElement(tag);
@@ -90,8 +101,8 @@ function createChangebutton (id) {
 function createChangeDataForm (id) {
     const changeDataForm = document.createElement("form")
     changeDataForm.classList.add("change-data-form");
-    changeDataForm.setAttribute("data-id", id)
-    changeDataForm.setAttribute("data-action", "update")
+    // changeDataForm.setAttribute("data-id", id)
+    // changeDataForm.setAttribute("data-action", "update")
 
     changeDataForm.addEventListener("submit", function(evt) {
         evt.preventDefault()
