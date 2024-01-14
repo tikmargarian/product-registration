@@ -7,6 +7,22 @@ mongoose.connect(URI).then(() => {
     }).catch((error) => {
         console.error("Eror to connection", error)
     })
+   
+// Прослушивание события ошибки подключения
+mongoose.connection.on('error', err => {
+    console.error('Database connection error:', err);
+});
+
+// Прослушивание события завершения работы приложения и закрытие соединения
+process.on('SIGINT', () => {
+    mongoose.connection.close().then(() => {
+        console.log('Disconnected from the database');
+        process.exit(0);
+    }).catch((error) => {
+        console.error('Error closing the database connection:', error);
+        process.exit(1);
+    });
+}); 
 
 const collection = "users"
 
