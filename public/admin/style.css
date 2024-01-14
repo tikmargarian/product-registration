@@ -170,7 +170,7 @@ a {
     text-align: center;
     margin-top: auto;
     color: #4070f4;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
 }
 
@@ -348,14 +348,14 @@ a {
         text-align: center;
         margin-top: auto;
         color: #4070f4;
-        font-size: 14px;
+        font-size: 15px;
         font-weight: 600;
     }
     
     #powered{
         text-align: center;
         font-size: 14px;
-        font-weight: 500;
+        font-weight: 600;
         margin-top: 12px;
     }
 }
