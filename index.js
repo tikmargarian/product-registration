@@ -60,8 +60,21 @@ app.post("/post", async (req, res) => {
 
 app.put("/update/:id", async (req, res) => {
     try {
+        const { code } = req.body
+        
+        const existingProduct = await Product.findOne({ code, _id: { $ne: req.params.id } });
+
+        if (existingProduct) {
+            // Товар с таким кодом уже существует
+            return res.status(300).json({
+                status: "300",
+                message: "Товар с таким кодом уже существует"
+            });
+        }
+
         const query = {_id: req.params.id}
         const updatedProduct = await Product.findByIdAndUpdate( query, req.body, {new: true})
+        
         if(updatedProduct) {
             // console.log("Документ успешно обновлен:", updatedProduct);
             res.status(200).json(updatedProduct);

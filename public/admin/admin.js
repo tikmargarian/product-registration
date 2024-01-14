@@ -130,14 +130,32 @@ function createChangeDataForm (id) {
                 changeDataForm.reset();
 
                 let changeDataMessage = document.getElementById("change-data-message")
+                let existingColor = changeDataMessage.style.color
 
                 changeDataMessage.textContent = "Данные успешно изменены"
+                changeDataMessage.style.color = "green";
 
                 setTimeout(() => {
                     changeDataMessage.textContent = ""
+                    changeDataMessage.style.color = existingColor;
                 }, 2500)
 
-            } else {
+            } else if(response.status === 300) {
+
+                let changeDataMessage = document.getElementById("change-data-message");
+                let existingColor = changeDataMessage.style.color
+
+                changeDataMessage.textContent = "Товар с таким кодом уже существует";
+                changeDataMessage.style.color = "red";
+
+                setTimeout(() => {
+                    changeDataMessage.textContent = "";
+                    changeDataMessage.style.color = existingColor;
+                }, 2500)
+                
+                // console.log("Товар с таким кодом уже существует у другого товара");
+            } 
+            else {
                 console.log('Произошла ошибка при обновлении данных:', response.status);
             }
         })
