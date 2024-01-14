@@ -195,7 +195,7 @@ a {
         flex-direction: column;
         max-width: 350px;
         width: 100%;
-        height: 550px;
+        height: 560px;
         padding: 10px;
         background-color: #fff;
         border-radius: 5px;
@@ -337,7 +337,7 @@ a {
     
     #change-data-message {
         text-align: center;
-        margin: 12px 0 6px 0;
+        margin: 14px 0 10px 0;
         font-weight: 500;
         font-size: 14px;
         color: green;
