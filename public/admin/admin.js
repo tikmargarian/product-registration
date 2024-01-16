@@ -140,7 +140,7 @@ function createChangeDataForm (id) {
                     changeDataMessage.style.color = existingColor;
                 }, 2500)
 
-            } else if(response.status === 300) {
+            } else if(response.status === 403) {
 
                 let changeDataMessage = document.getElementById("change-data-message");
                 let existingColor = changeDataMessage.style.color
@@ -153,7 +153,7 @@ function createChangeDataForm (id) {
                     changeDataMessage.style.color = existingColor;
                 }, 2500)
                 
-                // console.log("Товар с таким кодом уже существует у другого товара");
+                console.log("Товар с таким кодом уже существует у другого товара");
             } 
             else {
                 console.log('Произошла ошибка при обновлении данных:', response.status);

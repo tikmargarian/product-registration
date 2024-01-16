@@ -36,8 +36,8 @@ app.post("/post", async (req, res) => {
 
         if (existingProduct) {
             // Товар с таким кодом уже существует
-            return res.status(300).json({
-                status: "300",
+            return res.status(403).json({
+                status: "403",
                 message: "Товар с таким кодом уже существует"
             });
         }
@@ -66,8 +66,8 @@ app.put("/update/:id", async (req, res) => {
 
         if (existingProduct) {
             // Товар с таким кодом уже существует
-            return res.status(300).json({
-                status: "300",
+            return res.status(403).json({
+                status: "403",
                 message: "Товар с таким кодом уже существует"
             });
         }

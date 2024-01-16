@@ -33,7 +33,7 @@ registrationFrom.addEventListener("submit", function (evt) {
                 registrationMessage.textContent = ""
             }, 2500)
 
-        } else if(data.status === "300") {
+        } else if(data.status === "403") {
             console.log("Товар с таким кодом уже существует")
 
             let registrationMessage = document.getElementById("registration-message");

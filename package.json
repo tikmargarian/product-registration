@@ -116,7 +116,7 @@
     "dotenv": "^16.3.1"
   },
   "scripts": {
-    "web": "nodemon --require dotenv/config index.js"
+    "start": "nodemon --require dotenv/config index.js"
   },
   "author": "",
   "license": "ISC",
