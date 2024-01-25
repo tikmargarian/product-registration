@@ -116,12 +116,12 @@
     "dotenv": "^16.3.1"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon --require dotenv/config index.js"
   },
   "author": "",
   "license": "ISC",
   "type": "module",
   "engines": {
-    "node": "18.18.0"
+    "node": "20.11.0"
   }
 }
