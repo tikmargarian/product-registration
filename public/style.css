@@ -23,10 +23,11 @@ body{
 }
 
 .registration h2 {
+    text-align: center;
     font-size: 26px;
     font-weight: 600;
+    letter-spacing: 0.5px;
     color: #333;
-    text-align: center;
 }
 
 .registration-form{
@@ -64,7 +65,7 @@ body{
     font-size: 18px;
     border: none;
     cursor: pointer;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
 }
 
 #registration-message{

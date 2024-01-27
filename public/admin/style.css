@@ -27,11 +27,12 @@ body{
 }
 
 .content h2{
+    margin-top: 10px;
+    text-align: center;
     font-size: 26px;
     font-weight: 600;
+    letter-spacing: 1px ;
     color: #333;
-    text-align: center;
-    margin-top: 10px;
 }
 
 .find{

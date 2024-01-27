@@ -23,10 +23,10 @@ function handleSearch () {
 
         if(dataArray.length > 0) {
             dataArray.forEach(element => {
-                const code = createElelemtWithText("p", `Код товара: ${element.code}`)
-                const brand = createElelemtWithText("p", `Бренд товара: ${element.brand}`)
-                const product = createElelemtWithText("p", `Имя товара: ${element.product}`)
-                const price = createElelemtWithText("p", `Цена товара: ${element.price}`)
+                const code = createElelemtWithText("p", `Product Code: ${element.code}`)
+                const brand = createElelemtWithText("p", `Product Brand: ${element.brand}`)
+                const product = createElelemtWithText("p", `Product Name: ${element.product}`)
+                const price = createElelemtWithText("p", `Product Price: ${element.price}`)
                 const deleteBtn = createDeleteButton(element._id)
                 const changeBtn = createChangebutton(element._id)
                 
@@ -38,7 +38,7 @@ function handleSearch () {
                 result.appendChild(changeBtn)
             });
         } else {
-            result.textContent = "Товар не существует"
+            result.textContent = "The product does not exist"
         }
     })
     .catch(error => {
@@ -55,7 +55,7 @@ function createElelemtWithText (tag, text) {
 function createDeleteButton (id) {
     const deleteBtn = document.createElement("button");
     deleteBtn.setAttribute("id", "delete-button")
-    deleteBtn.innerHTML = "Удалить товар"
+    deleteBtn.innerHTML = "Delete this item"
 
     let result = document.querySelector(".search-result");
 
@@ -67,11 +67,11 @@ function createDeleteButton (id) {
                 result.innerHTML = ""
                 hideChangeDataForm()
             } else {
-                console.log('Произошла ошибка при удалении данных:', response.status);
+                console.log('An error occurred while deleting the data:', response.status);
             }
         })
         .catch((error) => {
-            console.error('Произошла ошибка при удалении данных:', error);
+            console.error('An error occurred while deleting the data:', error);
         })
     })
 
@@ -81,7 +81,7 @@ function createDeleteButton (id) {
 function createChangebutton (id) {
     const changeDataBtn = document.createElement("button");
     changeDataBtn.setAttribute("id", "change-button");
-    changeDataBtn.innerHTML = "Изменить данные товара"
+    changeDataBtn.innerHTML = "Change product details"
 
     const changeDataDiv = document.getElementById("change-data")
 
@@ -126,13 +126,13 @@ function createChangeDataForm (id) {
         })
         .then((response) => {
             if(response.ok) {
-                console.log("Данные успешно обновлены");
+                console.log("The data has been successfully updated");
                 changeDataForm.reset();
 
                 let changeDataMessage = document.getElementById("change-data-message")
                 let existingColor = changeDataMessage.style.color
 
-                changeDataMessage.textContent = "Данные успешно изменены"
+                changeDataMessage.textContent = "The data has been successfully updated"
                 changeDataMessage.style.color = "green";
 
                 setTimeout(() => {
@@ -145,7 +145,7 @@ function createChangeDataForm (id) {
                 let changeDataMessage = document.getElementById("change-data-message");
                 let existingColor = changeDataMessage.style.color
 
-                changeDataMessage.textContent = "Товар с таким кодом уже существует";
+                changeDataMessage.textContent = "A product with this code already exists";
                 changeDataMessage.style.color = "red";
 
                 setTimeout(() => {
@@ -153,21 +153,21 @@ function createChangeDataForm (id) {
                     changeDataMessage.style.color = existingColor;
                 }, 2500)
                 
-                console.log("Товар с таким кодом уже существует у другого товара");
+                console.log("A product with this code already exists for another product");
             } 
             else {
-                console.log('Произошла ошибка при обновлении данных:', response.status);
+                console.log('An error occurred while updating the data:', response.status);
             }
         })
         .catch((error) => {
-            console.error('Произошла ошибка при обновлении данных:', error);
+            console.error('An error occurred while updating the data:', error);
         })
     })
 
-    changeDataForm.appendChild(createNewInput("text", "Новый код", "new-code"))
-    changeDataForm.appendChild(createNewInput("text", "Новый бренд", "new-brand"))
-    changeDataForm.appendChild(createNewInput("text", "Новое имя", "new-product"))
-    changeDataForm.appendChild(createNewInput("text", "Новая цена", "new-price"))
+    changeDataForm.appendChild(createNewInput("text", "New code", "new-code"))
+    changeDataForm.appendChild(createNewInput("text", "New brand", "new-brand"))
+    changeDataForm.appendChild(createNewInput("text", "New name", "new-product"))
+    changeDataForm.appendChild(createNewInput("text", "New price", "new-price"))
     changeDataForm.appendChild(createChangeDataButton(id))
 
     changeDataForm.querySelectorAll('input').forEach(input => input.setAttribute('required', 'required'));
@@ -187,7 +187,7 @@ function createChangeDataButton () {
     const changeDataBtn = document.createElement("button");
     changeDataBtn.setAttribute("id", "data-change-btn");
     changeDataBtn.setAttribute("type", "submit")
-    changeDataBtn.innerHTML = "Сохранить новые данные "
+    changeDataBtn.innerHTML = "Save new data"
     return changeDataBtn
 }
 

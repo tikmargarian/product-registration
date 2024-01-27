@@ -23,21 +23,21 @@ registrationFrom.addEventListener("submit", function (evt) {
     .then((response) => response.json())
     .then((data) => {
         if(data.status === "200") {
-            console.log("Успешная регистрация!");
+            console.log("Successful registration!");
             registrationFrom.reset();
 
             let registrationMessage = document.getElementById("registration-message");
-            registrationMessage.textContent = "Данные успешно сохранены"
+            registrationMessage.textContent = "The data has been saved successfully"
 
             setTimeout(() => {
                 registrationMessage.textContent = ""
             }, 2500)
 
         } else if(data.status === "403") {
-            console.log("Товар с таким кодом уже существует")
+            console.log("A product with this code already exists")
 
             let registrationMessage = document.getElementById("registration-message");
-            registrationMessage.textContent = "Товар с таким кодом уже существует"
+            registrationMessage.textContent = "A product with this code already exists"
             registrationMessage.style.color = "red"
 
             setTimeout(() => {
@@ -47,6 +47,6 @@ registrationFrom.addEventListener("submit", function (evt) {
         }
     })
     .catch((error) => {
-        console.error("Ошибка при регистрации:", error);
+        console.error("Error during registration:", error);
     })
 })
